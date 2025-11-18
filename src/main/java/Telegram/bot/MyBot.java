@@ -1,11 +1,14 @@
 package Telegram.bot;
 
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class MyBot extends TelegramLongPollingBot {
     @Override
     public void onUpdateReceived(Update update) {
+        Mybotservis mybotservis = new Mybotservis();
         if (update.hasMessage() && update.getMessage().hasText()) {
 
             Long chatId = update.getMessage().getChatId();
@@ -18,6 +21,15 @@ public class MyBot extends TelegramLongPollingBot {
                     "\nLastname : " + lastName +
                     "\nChatId : " + chatId +
                     "\nText : " + text);
+        }
+        Long chatId = update.getMessage().getChatId();
+        String text = update.getMessage().getText();
+        if (text.equals("/start")) {
+            try {
+                execute(mybotservis.startBosilsa(chatId));
+            } catch (TelegramApiException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
