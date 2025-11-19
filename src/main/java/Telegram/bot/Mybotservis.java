@@ -23,28 +23,28 @@ public class Mybotservis {
 
         List<InlineKeyboardButton> row = new ArrayList<>();
         InlineKeyboardButton button = new InlineKeyboardButton();
-        button.setText("Русский");
+        button.setText("Русский\uD83C\uDDF7\uD83C\uDDFA");
         button.setCallbackData("РусскийId");
         row.add(button);
         rowList.add(row);
 
         List<InlineKeyboardButton> row1 = new ArrayList<>();
         InlineKeyboardButton button1 = new InlineKeyboardButton();
-        button1.setText("O'zbekcha");
+        button1.setText("O'zbekcha\uD83C\uDDFA\uD83C\uDDFF");
         button1.setCallbackData("ozbekchaId");
         row1.add(button1);
         rowList.add(row1);
 
         List<InlineKeyboardButton> row2 = new ArrayList<>();
         InlineKeyboardButton button2 = new InlineKeyboardButton();
-        button2.setText("Ўзбекча");
+        button2.setText("Ўзбекча\uD83C\uDDFA\uD83C\uDDFF");
         button2.setCallbackData("ЎзбекчаId");
         row2.add(button2);
         rowList.add(row2);
 
         List<InlineKeyboardButton> row3 = new ArrayList<>();
         InlineKeyboardButton button3 = new InlineKeyboardButton();
-        button3.setText("English");
+        button3.setText("English\uD83C\uDDF1\uD83C\uDDF7");
         button3.setCallbackData("englishId");
         row3.add(button3);
         rowList.add(row3);
