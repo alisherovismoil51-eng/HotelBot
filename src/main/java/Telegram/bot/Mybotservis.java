@@ -60,7 +60,7 @@ public class Mybotservis {
     public SendMessage uzbekchaBosilsa(Long chatId) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId);
-        sendMessage.setText("Ushbu Bot mehmonhona izlashda yordam beradi");
+        sendMessage.setText("Ushbu Bot O'zbekiston viloyatlari boyicha mehmonhona izlashda yordam beradi   \n   Viloyatingizni tanlang  ");
 
         ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
         List<KeyboardRow> rowList = new ArrayList<>();
