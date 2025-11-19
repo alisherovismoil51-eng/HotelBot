@@ -10,8 +10,9 @@ public class MyBot extends TelegramLongPollingBot {
     @Override
     public void onUpdateReceived(Update update) {
         Mybotservis mybotservis = new Mybotservis();
-        if (update.hasMessage() && update.getMessage().hasText()) {
 
+
+        if (update.hasMessage() && update.getMessage().hasText()) {
             Long chatId = update.getMessage().getChatId();
             String text = update.getMessage().getText();
 
@@ -19,33 +20,32 @@ public class MyBot extends TelegramLongPollingBot {
             String lastName = update.getMessage().getChat().getLastName();
 
             System.out.println("Firstname  :  " + firstName + "\nLastname : " + lastName + "\nChatId : " + chatId + "\nText : " + text);
-        }
-        Long chatId = update.getMessage().getChatId();
-        String text = update.getMessage().getText();
-        if (text.equals("/start")) {
-            try {
-                execute(mybotservis.startBosilsa(chatId));
-            } catch (TelegramApiException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        if (update.hasCallbackQuery()){
-            CallbackQuery callbackQuery = update.getCallbackQuery();
-            String data = callbackQuery.getData();
-            Long chatId1 = callbackQuery.getMessage().getChatId();
 
-            if (data.equals("ozbekchaId")){
+            if (text.equals("/start")) {
                 try {
-                    execute(mybotservis.uzbekchaBosilsa(chatId));
+                    execute(mybotservis.startBosilsa(chatId));
                 } catch (TelegramApiException e) {
                     throw new RuntimeException(e);
                 }
             }
-
         }
 
 
+        if (update.hasCallbackQuery()) {
+            CallbackQuery callbackQuery = update.getCallbackQuery();
+            String data = callbackQuery.getData();
+            if (callbackQuery.getMessage() != null) {
+                Long chatId = callbackQuery.getMessage().getChatId();
 
+                if (data.equals("ozbekchaId")) {
+                    try {
+                        execute(mybotservis.uzbekchaBosilsa(chatId));
+                    } catch (TelegramApiException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        }
     }
 
 
