@@ -53,9 +53,9 @@ public class MyBot extends TelegramLongPollingBot {
             if (callbackQuery.getMessage() != null) {
                 Long chatId = callbackQuery.getMessage().getChatId();
 
-                if (data.equals("РусскийId")) {
+                if (data.equals("englishId")) {
                     try {
-                        execute(mybotservis.ruschaBosilsa(chatId));
+                        execute(mybotservis.inglizchaBosilsa(chatId));
                     } catch (TelegramApiException e) {
                         throw new RuntimeException(e);
                     }
@@ -70,9 +70,9 @@ public class MyBot extends TelegramLongPollingBot {
             if (callbackQuery.getMessage() != null) {
                 Long chatId = callbackQuery.getMessage().getChatId();
 
-                if (data.equals("englishId")) {
+                if (data.equals("РусскийId")) {
                     try {
-                        execute(mybotservis.inglizBosilsa(chatId));
+                        execute(mybotservis.ruschaBosilsa(chatId));
                     } catch (TelegramApiException e) {
                         throw new RuntimeException(e);
                     }
