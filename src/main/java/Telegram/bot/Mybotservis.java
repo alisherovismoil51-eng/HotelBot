@@ -133,7 +133,7 @@ public class Mybotservis {
 
 
 
-    public SendMessage ruschaBosilsa(Long chatId) {
+    public SendMessage inglizchaBosilsa(Long chatId) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId);
         sendMessage.setText("Ushbu Bot mehmonhona izlashda yordam beradi");
@@ -207,7 +207,7 @@ public class Mybotservis {
         return sendMessage;
     }
 
-    public SendMessage inglizBosilsa(Long chatId) {
+    public SendMessage ruschaBosilsa(Long chatId) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId);
         sendMessage.setText("Этот бот поможет вам найти отель");
