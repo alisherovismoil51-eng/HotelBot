@@ -79,6 +79,22 @@ public class MyBot extends TelegramLongPollingBot {
                 }
             }
         }
+
+        if (update.hasCallbackQuery()) {
+            CallbackQuery callbackQuery = update.getCallbackQuery();
+            String data = callbackQuery.getData();
+            if (callbackQuery.getMessage() != null) {
+                Long chatId = callbackQuery.getMessage().getChatId();
+
+                if (data.equals("ЎзбекчаId")) {
+                    try {
+                        execute(mybotservis.krilchaBosilsa(chatId));
+                    } catch (TelegramApiException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        }
     }
 
 
