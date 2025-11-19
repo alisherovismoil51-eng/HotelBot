@@ -72,7 +72,7 @@ public class MyBot extends TelegramLongPollingBot {
 
                 if (data.equals("englishId")) {
                     try {
-                        execute(mybotservis.inglizBosilsa(chatId));
+                        execute(mybotservis.inglizchaBosilsa(chatId));
                     } catch (TelegramApiException e) {
                         throw new RuntimeException(e);
                     }
