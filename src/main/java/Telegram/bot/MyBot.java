@@ -2,6 +2,7 @@ package Telegram.bot;
 
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
@@ -17,10 +18,7 @@ public class MyBot extends TelegramLongPollingBot {
             String firstName = update.getMessage().getChat().getFirstName();
             String lastName = update.getMessage().getChat().getLastName();
 
-            System.out.println("Firstname  :  " + firstName +
-                    "\nLastname : " + lastName +
-                    "\nChatId : " + chatId +
-                    "\nText : " + text);
+            System.out.println("Firstname  :  " + firstName + "\nLastname : " + lastName + "\nChatId : " + chatId + "\nText : " + text);
         }
         Long chatId = update.getMessage().getChatId();
         String text = update.getMessage().getText();
@@ -31,7 +29,26 @@ public class MyBot extends TelegramLongPollingBot {
                 throw new RuntimeException(e);
             }
         }
+        if (update.hasCallbackQuery()){
+            CallbackQuery callbackQuery = update.getCallbackQuery();
+            String data = callbackQuery.getData();
+            Long chatId1 = callbackQuery.getMessage().getChatId();
+
+            if (data.equals("ozbekchaId")){
+                try {
+                    execute(mybotservis.uzbekchaBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+        }
+
+
+
     }
+
+
 
 
     @Override
