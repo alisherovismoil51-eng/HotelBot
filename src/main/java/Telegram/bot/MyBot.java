@@ -39,6 +39,24 @@ public class MyBot extends TelegramLongPollingBot {
             }
 
 
+            if (text.equals("Tashkent region")) {
+                try {
+                    execute(mybotservis.inglizchatoshkenBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+
+            if (text.equals("Ташкентская область")) {
+                try {
+                    execute(mybotservis.ruschaToshkenBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+
         }
 
 
