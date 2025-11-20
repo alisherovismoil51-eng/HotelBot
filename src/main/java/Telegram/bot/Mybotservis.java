@@ -637,7 +637,7 @@ public class Mybotservis {
     public SendMessage krilchaToshkenBosilsa(Long chatId) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId);
-        sendMessage.setText("поиск");
+        sendMessage.setText("Қидириш");
 
 
         InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
@@ -645,28 +645,28 @@ public class Mybotservis {
 
         List<InlineKeyboardButton> row = new ArrayList<>();
         InlineKeyboardButton button = new InlineKeyboardButton();
-        button.setText("Горный курорт Amirsoy");
+        button.setText("Амирсой Маунтин Ресорт");
         button.setCallbackData("amirsoyrusId");
         row.add(button);
         rowList.add(row);
 
         List<InlineKeyboardButton> row1 = new ArrayList<>();
         InlineKeyboardButton button1 = new InlineKeyboardButton();
-        button1.setText("Le Chalet от Amirsoy");
+        button1.setText("Ле Шале бай Амирсой");
         button1.setCallbackData("amirsoyrus1Id");
         row1.add(button1);
         rowList.add(row1);
 
         List<InlineKeyboardButton> row2 = new ArrayList<>();
         InlineKeyboardButton button2 = new InlineKeyboardButton();
-        button2.setText("Горный курорт ARCHAZOR");
+        button2.setText("Арчазор Маунтин Ресорт");
         button2.setCallbackData("archazorrusId");
         row2.add(button2);
         rowList.add(row2);
 
         List<InlineKeyboardButton> row3 = new ArrayList<>();
         InlineKeyboardButton button3 = new InlineKeyboardButton();
-        button3.setText("Отель и курорт Beldersay");
+        button3.setText("Белдерсай Хотел ва Ресорт");
         button3.setCallbackData("bildirsoyrusId");
         row3.add(button3);
         rowList.add(row3);
@@ -674,7 +674,7 @@ public class Mybotservis {
 
         List<InlineKeyboardButton> row4 = new ArrayList<>();
         InlineKeyboardButton button4 = new InlineKeyboardButton();
-        button4.setText("Отель Azia Chimgan");
+        button4.setText("Азия Чимган Хотел");
         button4.setCallbackData("aziaengId");
         row4.add(button4);
         rowList.add(row4);
@@ -682,7 +682,7 @@ public class Mybotservis {
 
         List<InlineKeyboardButton> row5 = new ArrayList<>();
         InlineKeyboardButton button5 = new InlineKeyboardButton();
-        button5.setText("Гостиница Amirsoy Apple");
+        button5.setText("Амирсой Эппл Дача");
         button5.setCallbackData("amirsoyrus2Id");
         row5.add(button5);
         rowList.add(row5);
@@ -690,7 +690,7 @@ public class Mybotservis {
 
         List<InlineKeyboardButton> row6 = new ArrayList<>();
         InlineKeyboardButton button6 = new InlineKeyboardButton();
-        button6.setText("Отель Apache ");
+        button6.setText("Апаче дам олиш маскани ");
         button6.setCallbackData("apacherusId");
         row6.add(button6);
         rowList.add(row6);
@@ -698,7 +698,7 @@ public class Mybotservis {
 
         List<InlineKeyboardButton> row7 = new ArrayList<>();
         InlineKeyboardButton button7 = new InlineKeyboardButton();
-        button7.setText("Sky Отель, Chimgan");
+        button7.setText("Скай Вилладж, Чимган");
         button7.setCallbackData("skyrusId");
         row7.add(button7);
         rowList.add(row7);
@@ -706,7 +706,7 @@ public class Mybotservis {
 
         List<InlineKeyboardButton> row8 = new ArrayList<>();
         InlineKeyboardButton button8 = new InlineKeyboardButton();
-        button8.setText("Nebesa Guest Отель");
+        button8.setText("Небеса Гуест Хаус");
         button8.setCallbackData("nebesarusId");
         row8.add(button8);
         rowList.add(row8);
@@ -714,7 +714,7 @@ public class Mybotservis {
 
         List<InlineKeyboardButton> row9 = new ArrayList<>();
         InlineKeyboardButton button9 = new InlineKeyboardButton();
-        button9.setText("Panoramic Отель");
+        button9.setText("Панорамик Хотел");
         button9.setCallbackData("panoramicrusId");
         row9.add(button9);
         rowList.add(row9);
