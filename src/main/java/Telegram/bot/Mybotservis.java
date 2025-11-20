@@ -59,8 +59,7 @@ public class Mybotservis {
     public SendMessage uzbekchaBosilsa(Long chatId) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId);
-        sendMessage.setText("Ushbu Bot O'zbekiston viloyatlari boyicha mehmonhona izlashda yordam beradi");
-        sendMessage.setText("Viloyatingizni tanlang ");
+        sendMessage.setText("Ushbu Bot O'zbekiston viloyatlari boyicha mehmonhona izlashda yordam beradi ");
         ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
         List<KeyboardRow> rowList = new ArrayList<>();
 
@@ -350,6 +349,98 @@ public class Mybotservis {
         replyKeyboardMarkup.setResizeKeyboard(true);
         replyKeyboardMarkup.setKeyboard(rowList);
         sendMessage.setReplyMarkup(replyKeyboardMarkup);
+
+        return sendMessage;
+    }
+
+    public SendMessage ToshkenBosilsa(Long chatId) {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setChatId(chatId);
+        sendMessage.setText("Tanlang");
+
+
+        InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rowList = new ArrayList<>();
+
+        List<InlineKeyboardButton> row = new ArrayList<>();
+        InlineKeyboardButton button = new InlineKeyboardButton();
+        button.setText("Amirsoy Mountain Resort");
+        button.setCallbackData("amirsoyId");
+        row.add(button);
+        rowList.add(row);
+
+        List<InlineKeyboardButton> row1 = new ArrayList<>();
+        InlineKeyboardButton button1 = new InlineKeyboardButton();
+        button1.setText("Le Chalet by Amirsoy");
+        button1.setCallbackData("amirsoy1Id");
+        row1.add(button1);
+        rowList.add(row1);
+
+        List<InlineKeyboardButton> row2 = new ArrayList<>();
+        InlineKeyboardButton button2 = new InlineKeyboardButton();
+        button2.setText("ARCHAZOR Mountain Resort");
+        button2.setCallbackData("archazorId");
+        row2.add(button2);
+        rowList.add(row2);
+
+        List<InlineKeyboardButton> row3 = new ArrayList<>();
+        InlineKeyboardButton button3 = new InlineKeyboardButton();
+        button3.setText("Beldersay Hotel & Resort");
+        button3.setCallbackData("bildirsoyId");
+        row3.add(button3);
+        rowList.add(row3);
+
+
+        List<InlineKeyboardButton> row4 = new ArrayList<>();
+        InlineKeyboardButton button4 = new InlineKeyboardButton();
+        button4.setText("Azia Chimgan Hotel");
+        button4.setCallbackData("aziaId");
+        row4.add(button4);
+        rowList.add(row4);
+
+
+        List<InlineKeyboardButton> row5 = new ArrayList<>();
+        InlineKeyboardButton button5 = new InlineKeyboardButton();
+        button5.setText("Amirsoy Apple Dacha");
+        button5.setCallbackData("amirsoy2Id");
+        row5.add(button5);
+        rowList.add(row5);
+
+
+        List<InlineKeyboardButton> row6 = new ArrayList<>();
+        InlineKeyboardButton button6 = new InlineKeyboardButton();
+        button6.setText("Apache dam olish maskani");
+        button6.setCallbackData("apacheId");
+        row6.add(button6);
+        rowList.add(row6);
+
+
+        List<InlineKeyboardButton> row7 = new ArrayList<>();
+        InlineKeyboardButton button7 = new InlineKeyboardButton();
+        button7.setText("Sky Village, Chimgan");
+        button7.setCallbackData("skyId");
+        row7.add(button7);
+        rowList.add(row7);
+
+
+        List<InlineKeyboardButton> row8 = new ArrayList<>();
+        InlineKeyboardButton button8 = new InlineKeyboardButton();
+        button8.setText("Nebesa Guest House");
+        button8.setCallbackData("nebesaId");
+        row8.add(button8);
+        rowList.add(row8);
+
+
+        List<InlineKeyboardButton> row9 = new ArrayList<>();
+        InlineKeyboardButton button9 = new InlineKeyboardButton();
+        button9.setText("Panoramic Hotel");
+        button9.setCallbackData("panoramicId");
+        row9.add(button9);
+        rowList.add(row9);
+
+
+        inlineKeyboardMarkup.setKeyboard(rowList);
+        sendMessage.setReplyMarkup(inlineKeyboardMarkup);
 
         return sendMessage;
     }

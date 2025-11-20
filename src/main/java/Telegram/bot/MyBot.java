@@ -28,6 +28,17 @@ public class MyBot extends TelegramLongPollingBot {
                     throw new RuntimeException(e);
                 }
             }
+
+
+            if (text.equals("Toshkent viloyati")) {
+                try {
+                    execute(mybotservis.ToshkenBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+
         }
 
 
