@@ -56,6 +56,13 @@ public class MyBot extends TelegramLongPollingBot {
                 }
             }
 
+            if (text.equals("Тошкент вилояти")) {
+                try {
+                    execute(mybotservis.krilchaToshkenBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
 
         }
 
