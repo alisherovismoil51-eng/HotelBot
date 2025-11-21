@@ -9,10 +9,7 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.Keyboard
 
 import java.util.ArrayList;
 import java.util.List;
-
-
 public class Mybotservis {
-
     public SendMessage startBosilsa(Long chatId) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId.toString());
@@ -54,8 +51,6 @@ public class Mybotservis {
 
         return sendMessage;
     }
-
-
     public SendMessage uzbekchaBosilsa(Long chatId) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId);
@@ -128,8 +123,6 @@ public class Mybotservis {
 
         return sendMessage;
     }
-
-
     public SendMessage inglizchaBosilsa(Long chatId) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId);
@@ -203,7 +196,6 @@ public class Mybotservis {
 
         return sendMessage;
     }
-
     public SendMessage ruschaBosilsa(Long chatId) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId);
@@ -277,7 +269,6 @@ public class Mybotservis {
 
         return sendMessage;
     }
-
     public SendMessage krilchaBosilsa(Long chatId) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId);
