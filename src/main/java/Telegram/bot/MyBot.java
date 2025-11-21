@@ -64,6 +64,394 @@ public class MyBot extends TelegramLongPollingBot {
                 }
             }
 
+            if (text.equals("Sirdaryo viloyati")) {
+                try {
+                    execute(mybotservis.sirdaryoBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Jizzax viloyati")) {
+                try {
+                    execute(mybotservis.jizzaxBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+
+            if (text.equals("Samarqand viloyati")) {
+                try {
+                    execute(mybotservis.samarqandBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+
+
+            if (text.equals("Qashqadaryo viloyati")) {
+                try {
+                    execute(mybotservis.qashqadaryoBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Andijon viloyati")) {
+                try {
+                    execute(mybotservis.andijonBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Andijon region")) {
+                try {
+                    execute(mybotservis.andijonEngBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+
+
+            if (text.equals("Андижанская область")) {
+                try {
+                    execute(mybotservis.andijonRusBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Андижон вилояти")) {
+                try {
+                    execute(mybotservis.andijonKrilBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+
+            if (text.equals("Farg‘ona viloyati")) {
+                try {
+                    execute(mybotservis.fargonaBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+
+            if (text.equals("Farg‘ona region")) {
+                try {
+                    execute(mybotservis.fargonaEngBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+
+            if (text.equals("Ферганская область")) {
+                try {
+                    execute(mybotservis.fargonaRusBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+
+            if (text.equals("Фарғона вилояти")) {
+                try {
+                    execute(mybotservis.fargonaKrilBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+
+            if (text.equals("Namangan viloyati")) {
+                try {
+                    execute(mybotservis.namanganBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+
+            if (text.equals("Namangan region")) {
+                try {
+                    execute(mybotservis.namanganEngBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+
+            if (text.equals("Наманганская область")) {
+                try {
+                    execute(mybotservis.namanganRusBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+
+            if (text.equals("Наманган вилояти")) {
+                try {
+                    execute(mybotservis.namanganKrilBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+
+            if (text.equals("Xorazm viloyati")) {
+                try {
+                    execute(mybotservis.xorazmBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+
+            if (text.equals("Xorazm region")) {
+                try {
+                    execute(mybotservis.xorazmEngBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Хорезмская область")) {
+                try {
+                    execute(mybotservis.xorazmRusBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Хоразм вилояти")) {
+                try {
+                    execute(mybotservis.xorazmKrilBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Navoiy viloyati")) {
+                try {
+                    execute(mybotservis.navoiyBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Navoiy region")) {
+                try {
+                    execute(mybotservis.navoiyEngBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Навоийская область")) {
+                try {
+                    execute(mybotservis.navoiyRuschaBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Навоий вилояти")) {
+                try {
+                    execute(mybotservis.navoiyKrilchaBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+
+            if (text.equals("Buxoro viloyati")) {
+                try {
+                    execute(mybotservis.buxoroBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+
+            if (text.equals("Бухарская область")) {
+                try {
+                    execute(mybotservis.buxoroRuschaBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Buxoro region")) {
+                try {
+                    execute(mybotservis.buxoroEngBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Бухоро вилояти")) {
+                try {
+                    execute(mybotservis.buxoroKrilchaBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Surxondaryo viloyati")) {
+                try {
+                    execute(mybotservis.surxondaryoBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Сурхандарьинская область")) {
+                try {
+                    execute(mybotservis.surxondaryoRuschaBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Surxondaryo region")) {
+                try {
+                    execute(mybotservis.surxondaryoEngBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Сурхондарё вилояти")) {
+                try {
+                    execute(mybotservis.surxondaryoKrilchaBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Қашқадарё вилояти")) {
+                try {
+                    execute(mybotservis.qashqadaryoRuschaBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Qashqadaryo region")) {
+                try {
+                    execute(mybotservis.qashqadaryoEngBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Қашқадарё вилояти")) {
+                try {
+                    execute(mybotservis.qashqadaryoKrilchaBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Самаркандская область")) {
+                try {
+                    execute(mybotservis.samarqandRuschaBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Samarqand region")) {
+                try {
+                    execute(mybotservis.samarqandEngBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Самарқанд вилояти")) {
+                try {
+                    execute(mybotservis.samarqandKrilchaBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Джизакская область")) {
+                try {
+                    execute(mybotservis.jizzaxRuschaBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Jizzax region")) {
+                try {
+                    execute(mybotservis.jizzaxEngBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Жиззах вилояти")) {
+                try {
+                    execute(mybotservis.jizzaxEngBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Сырдарьинская область")) {
+                try {
+                    execute(mybotservis.sirdaryoRuschaBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Sirdaryo region")) {
+                try {
+                    execute(mybotservis.sirdaryoEngBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Сирдарё вилояти")) {
+                try {
+                    execute(mybotservis.sirdaryoKrilchaBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (text.equals("Сирдарё вилояти")) {
+                try {
+                    execute(mybotservis.sirdaryoKrilchaBosilsa(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
         }
 
 
