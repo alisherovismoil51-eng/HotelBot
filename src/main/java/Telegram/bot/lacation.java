@@ -23,7 +23,7 @@ public class MyBot extends TelegramLongPollingBot {
             }
             if (text.equals("/location")){
                 try {
-                    execute(myBotService.sendLocation(chatId));
+                    execute(.myBotService.sendLocation(chatId));
                 } catch (TelegramApiException e) {
                     throw new RuntimeException(e);
                 }
