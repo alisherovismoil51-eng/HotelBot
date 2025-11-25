@@ -43,11 +43,11 @@ public class MyBot extends TelegramLongPollingBot {
 
     @Override
     public String getBotUsername() {
-        return "hubrgurbgrgg4gguirfBot";
+        return "@GrandImperial_hotelbot";;
     }
 
     @Override
     public String getBotToken() {
-        return "8528897609:AAGef_iNwc81QYGIVrcQs6TDM057Hc6fY9U";
+        return "8552114504:AAGWPdO_ov08T7osat1pjAu4s-Cx5SYQnD4";
     }
 }
