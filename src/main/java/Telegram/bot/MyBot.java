@@ -553,7 +553,7 @@ public class MyBot extends TelegramLongPollingBot {
         message.setText(text);
 
         try {
-            execute(message);  // Xabarni yuborish
+            execute(message);
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
