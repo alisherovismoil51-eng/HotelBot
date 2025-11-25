@@ -47,7 +47,6 @@ public class LOCATIO {
         sendMessage.setReplyMarkup(replyKeyboardMarkup);
         return sendMessage;
 
-
     }
 
 

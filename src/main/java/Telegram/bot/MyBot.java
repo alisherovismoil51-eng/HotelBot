@@ -2,14 +2,18 @@ package Telegram.bot;
 
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class MyBot extends TelegramLongPollingBot {
+
+    Mybotservis mybotservis = new Mybotservis();
+    LOCATIO locatio = new LOCATIO();
     @Override
     public void onUpdateReceived(Update update) {
-        Mybotservis mybotservis = new Mybotservis();
+
 
 
         if (update.hasMessage() && update.getMessage().hasText()) {
@@ -468,6 +472,14 @@ public class MyBot extends TelegramLongPollingBot {
                         throw new RuntimeException(e);
                     }
                 }
+
+                if (data.equals("amirsoyId")){
+                    try {
+                        execute(locatio.sendLocation(chatId));
+                    } catch (TelegramApiException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
             }
         }
 
@@ -534,4 +546,19 @@ public class MyBot extends TelegramLongPollingBot {
     public String getBotToken() {
         return "8552114504:AAGWPdO_ov08T7osat1pjAu4s-Cx5SYQnD4";
     }
+
+    public void sendMessage(Long chatId, String text) {
+        SendMessage message = new SendMessage();
+        message.setChatId(chatId);
+        message.setText(text);
+
+        try {
+            execute(message);  // Xabarni yuborish
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
+
