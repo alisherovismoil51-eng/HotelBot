@@ -4,6 +4,7 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
+import org.telegram.telegrambots.meta.api.objects.InputFile;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
@@ -519,8 +520,8 @@ public class MyBot extends TelegramLongPollingBot {
         if (update.hasCallbackQuery()) {
             CallbackQuery callbackQuery = update.getCallbackQuery();
             String data = callbackQuery.getData();
+            Long chatId = callbackQuery.getMessage().getChatId();
             if (callbackQuery.getMessage() != null) {
-                Long chatId = callbackQuery.getMessage().getChatId();
 
                 if (data.equals("ЎзбекчаId")) {
                     try {
@@ -530,6 +531,39 @@ public class MyBot extends TelegramLongPollingBot {
                     }
                 }
             }
+            location loc = new location();
+
+
+            if (data.equals("amirsoyId") ||
+                    data.equals("amirsoy1Id") ||
+                    data.equals("archazorId") ||
+                    data.equals("bildirsoyId") ||
+                    data.equals("aziaId") ||
+                    data.equals("amirsoy2Id") ||
+                    data.equals("apacheId") ||
+                    data.equals("skyId") ||
+                    data.equals("nebesaId") ||
+                    data.equals("panoramicId")) {
+
+                String photoUrl = loc.getHotelPhoto(data);
+
+                SendPhoto sendPhoto = new SendPhoto();
+                sendPhoto.setChatId(chatId.toString());
+
+                if (photoUrl != null) {
+                    sendPhoto.setPhoto(new InputFile("https://lh3.googleusercontent.com/p/AF1QipM1qi-zGytdGdA6FMLRs4d5CcgfmpPhMU4yxP1U=w408-h272-k-no"));
+                    sendPhoto.setCaption("Manzil: " + photoUrl);
+                } else {
+                    sendPhoto.setCaption("Ma'lumot yo'q ❌");
+                }
+
+                try {
+                    execute(sendPhoto);
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
         }
     }
 
