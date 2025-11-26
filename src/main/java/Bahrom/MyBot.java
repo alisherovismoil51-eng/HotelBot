@@ -1,8 +1,7 @@
-package Telegram.bot;
+package Bahrom;
 
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
@@ -459,29 +458,30 @@ public class MyBot extends TelegramLongPollingBot {
         }
 
 
+        // MyBot.java ichida:
+
         if (update.hasCallbackQuery()) {
-            CallbackQuery callbackQuery = update.getCallbackQuery();
-            String data = callbackQuery.getData();
-            if (callbackQuery.getMessage() != null) {
-                Long chatId = callbackQuery.getMessage().getChatId();
+            String data = update.getCallbackQuery().getData();
+            Long chatId = update.getCallbackQuery().getMessage().getChatId();
 
-                if (data.equals("ozbekchaId")) {
-                    try {
-                        execute(mybotservis.uzbekchaBosilsa(chatId));
-                    } catch (TelegramApiException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-
-                if (data.equals("amirsoyId")){
-                    try {
-                        execute(locatio.sendLocation(chatId));
-                    } catch (TelegramApiException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
+            if (data.equals("ozbekchaId")) {
+                // "uz" kodini berib yuboramiz
+                execute1(mybotservis.viloyatlarBosilsa(chatId, "uz"));
+            }
+            else if (data.equals("englishId")) {
+                // "en" kodini berib yuboramiz
+                execute1(mybotservis.viloyatlarBosilsa(chatId, "en"));
+            }
+            else if (data.equals("РусскийId")) {
+                // "ru" kodini berib yuboramiz
+                execute1(mybotservis.viloyatlarBosilsa(chatId, "ru"));
+            }
+            else if (data.equals("ЎзбекчаId")) { // Kirillcha
+                // "uz_cyr" kodini berib yuboramiz
+                execute1(mybotservis.viloyatlarBosilsa(chatId, "uz_cyr"));
             }
         }
+
 
         if (update.hasCallbackQuery()) {
             CallbackQuery callbackQuery = update.getCallbackQuery();
@@ -534,7 +534,15 @@ public class MyBot extends TelegramLongPollingBot {
     }
 
 
-
+    // Bu metodni MyBot classining ichiga, eng pastiga joylashtiring
+    public void execute1(SendMessage sendMessage) {
+        try {
+            // "super" bu TelegramLongPollingBot ning o'zining metodi
+            super.execute(sendMessage);
+        } catch (TelegramApiException e) {
+            e.printStackTrace(); // Xatolik bo'lsa konsolga chiqaradi
+        }
+    }
 
 
     @Override
@@ -553,7 +561,7 @@ public class MyBot extends TelegramLongPollingBot {
         message.setText(text);
 
         try {
-            execute(message);  // Xabarni yuborish
+            execute(message);
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
