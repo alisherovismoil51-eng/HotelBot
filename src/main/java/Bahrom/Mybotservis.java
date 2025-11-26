@@ -1,5 +1,6 @@
-package Telegram.bot;
+package Bahrom;
 
+import Bahrom.Tarjima;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
@@ -10,6 +11,53 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.Keyboard
 import java.util.ArrayList;
 import java.util.List;
 public class Mybotservis {
+
+
+
+    public SendMessage viloyatlarBosilsa(Long chatId, String lang) {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setChatId(chatId);
+
+        // MANA SHU YERDA TARJIMA ISHLATILADI:
+        String text = Tarjima.get(lang, "choose_region");
+        sendMessage.setText(text);
+
+        ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
+        List<KeyboardRow> rowList = new ArrayList<>();
+
+        // 1-qator
+        KeyboardRow row = new KeyboardRow();
+        row.add(new KeyboardButton(Tarjima.get(lang, "tashkent"))); // "Toshkent viloyati" yoki "Tashkent region" chiqadi
+        row.add(new KeyboardButton(Tarjima.get(lang, "samarkand")));
+        rowList.add(row);
+
+        // Qolgan viloyatlarni ham Tarjima.get(lang, "kalit_soz") qilib qo'shasiz...
+
+        replyKeyboardMarkup.setResizeKeyboard(true);
+        replyKeyboardMarkup.setKeyboard(rowList);
+        sendMessage.setReplyMarkup(replyKeyboardMarkup);
+
+        return sendMessage;
+    }
+
+
+    // Mehmonxonalar ro'yxati uchun ham xuddi shunday:
+    public SendMessage toshkentMehmonxonalari(Long chatId, String lang) {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setChatId(chatId);
+
+        // "Qidirish" so'zini tarjima qiladi
+        sendMessage.setText(Tarjima.get(lang, "search"));
+
+        // ... InlineButtonlar kodi ...
+        // Button nomlarini ham Tarjima.get(lang, "hotel_name_key") qilsa bo'ladi
+
+        return sendMessage;
+    }
+
+
+
+
     public SendMessage startBosilsa(Long chatId) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId.toString());
