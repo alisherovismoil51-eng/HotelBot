@@ -1,4 +1,4 @@
-package Telegram.bot;
+package Bahrom;
 
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
