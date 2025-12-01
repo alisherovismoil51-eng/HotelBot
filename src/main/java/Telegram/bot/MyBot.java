@@ -1,16 +1,16 @@
-package Bahrom;
+package Telegram.bot;
 
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
-import org.telegram.telegrambots.meta.api.objects.InputFile;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class MyBot extends TelegramLongPollingBot {
 
     Mybotservis mybotservis = new Mybotservis();
-    LOCATIO locatio = new LOCATIO();
+    Telegram.bot.LOCATIO locatio = new Telegram.bot.LOCATIO();
     @Override
     public void onUpdateReceived(Update update) {
 
@@ -445,50 +445,21 @@ public class MyBot extends TelegramLongPollingBot {
                 }
             }
 
-
-
-
-
-
-
-
-
-
-
-
         }
-
-
-        // MyBot.java ichida:
-
-        if (update.hasCallbackQuery()) {
-            String data = update.getCallbackQuery().getData();
-            Long chatId = update.getCallbackQuery().getMessage().getChatId();
-
-            if (data.equals("ozbekchaId")) {
-                // "uz" kodini berib yuboramiz
-                execute1(mybotservis.viloyatlarBosilsa(chatId, "uz"));
-            }
-            else if (data.equals("englishId")) {
-                // "en" kodini berib yuboramiz
-                execute1(mybotservis.viloyatlarBosilsa(chatId, "en"));
-            }
-            else if (data.equals("РусскийId")) {
-                // "ru" kodini berib yuboramiz
-                execute1(mybotservis.viloyatlarBosilsa(chatId, "ru"));
-            }
-            else if (data.equals("ЎзбекчаId")) { // Kirillcha
-                // "uz_cyr" kodini berib yuboramiz
-                execute1(mybotservis.viloyatlarBosilsa(chatId, "uz_cyr"));
-            }
-        }
-
 
         if (update.hasCallbackQuery()) {
             CallbackQuery callbackQuery = update.getCallbackQuery();
             String data = callbackQuery.getData();
-            if (callbackQuery.getMessage() != null) {
+
                 Long chatId = callbackQuery.getMessage().getChatId();
+
+                if (data.equals("ozbekchaId")) {
+                    try {
+                        execute(mybotservis.uzbekchaBosilsa(chatId));
+                    } catch (TelegramApiException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
 
                 if (data.equals("РусскийId")) {
                     try {
@@ -497,15 +468,6 @@ public class MyBot extends TelegramLongPollingBot {
                         throw new RuntimeException(e);
                     }
                 }
-            }
-        }
-
-
-        if (update.hasCallbackQuery()) {
-            CallbackQuery callbackQuery = update.getCallbackQuery();
-            String data = callbackQuery.getData();
-            if (callbackQuery.getMessage() != null) {
-                Long chatId = callbackQuery.getMessage().getChatId();
 
                 if (data.equals("englishId")) {
                     try {
@@ -514,14 +476,6 @@ public class MyBot extends TelegramLongPollingBot {
                         throw new RuntimeException(e);
                     }
                 }
-            }
-        }
-
-        if (update.hasCallbackQuery()) {
-            CallbackQuery callbackQuery = update.getCallbackQuery();
-            String data = callbackQuery.getData();
-            Long chatId = callbackQuery.getMessage().getChatId();
-            if (callbackQuery.getMessage() != null) {
 
                 if (data.equals("ЎзбекчаId")) {
                     try {
@@ -530,58 +484,169 @@ public class MyBot extends TelegramLongPollingBot {
                         throw new RuntimeException(e);
                     }
                 }
-            }
-            location loc = new location();
 
 
-            if (data.equals("amirsoyId") ||
-                    data.equals("amirsoy1Id") ||
-                    data.equals("archazorId") ||
-                    data.equals("bildirsoyId") ||
-                    data.equals("aziaId") ||
-                    data.equals("amirsoy2Id") ||
-                    data.equals("apacheId") ||
-                    data.equals("skyId") ||
-                    data.equals("nebesaId") ||
-                    data.equals("panoramicId")) {
 
-                String photoUrl = loc.getHotelPhoto(data);
 
-                SendPhoto sendPhoto = new SendPhoto();
-                sendPhoto.setChatId(chatId.toString());
 
-                if (photoUrl != null) {
-                    sendPhoto.setPhoto(new InputFile("https://lh3.googleusercontent.com/p/AF1QipM1qi-zGytdGdA6FMLRs4d5CcgfmpPhMU4yxP1U=w408-h272-k-no"));
-                    sendPhoto.setCaption("Manzil: " + photoUrl);
-                } else {
-                    sendPhoto.setCaption("Ma'lumot yo'q ❌");
-                }
-
+            if (data.equals("amirsoyId")) {
                 try {
-                    execute(sendPhoto);
+                    execute(locatio.amirsoyMountainResort(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            } else if (data.equals("amirsoy1Id")) {
+                try {
+                    execute(locatio.leChaletmalumot(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            } else if (data.equals("archazorId")) {
+                try {
+                    execute(locatio.archazorMountainResort(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            } else if (data.equals("bildirsoyId")) {
+                try {
+                    execute(locatio.beldersayHotelResort(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            } else if (data.equals("aziaId")) {
+                try {
+                    execute(locatio.aziaChimganHotel(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            } else if (data.equals("amirsoy2Id")) {
+                try {
+                    execute(locatio.amirsoyAppleDacha(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            } else if (data.equals("apacheId")) {
+                try {
+                    execute(locatio.apacheDamOlish(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            } else if (data.equals("skyId")) {
+                try {
+                    execute(locatio.skyVillageChimgan(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            } else if (data.equals("nebesaId")) {
+                try {
+                    execute(locatio.nebesaGuestHouse(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            } else if (data.equals("panoramicId")) {
+                try {
+                    execute(locatio.panoramicHotel(chatId));
                 } catch (TelegramApiException e) {
                     throw new RuntimeException(e);
                 }
             }
 
+
+
+            if (data.equals("humoId")) {
+                try {
+                    execute(locatio.humoId(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            else if (data.equals("safarobodId")) {
+                try {
+                    execute(locatio.safarobodId(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            else if (data.equals("sadafId")) {
+                try {
+                    execute(locatio.sadafId(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            else if (data.equals("sayhunId")) {
+                try {
+                    execute(locatio.sayhunId(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            else if (data.equals("farovonId")) {
+                try {
+                    execute(locatio.farovonId(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            else if (data.equals("shohruxId")) {
+                try {
+                    execute(locatio.shohruxId(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            else if (data.equals("islombekId")) {
+                try {
+                    execute(locatio.islombekId(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            else if (data.equals("gulistonId")) {
+                try {
+                    execute(locatio.gulistonId(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            else if (data.equals("sarviId")) {
+                try {
+                    execute(locatio.sarviId(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            else if (data.equals("dunyoId")) {
+                try {
+                    execute(locatio.dunyoId(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+
+
+
+
         }
     }
 
 
-    // Bu metodni MyBot classining ichiga, eng pastiga joylashtiring
-    public void execute1(SendMessage sendMessage) {
-        try {
-            // "super" bu TelegramLongPollingBot ning o'zining metodi
-            super.execute(sendMessage);
-        } catch (TelegramApiException e) {
-            e.printStackTrace(); // Xatolik bo'lsa konsolga chiqaradi
-        }
-    }
+
 
 
     @Override
     public String getBotUsername() {
-        return "GrandImperial_hotelbot";
+        return "@GrandImperial_hotelbot";
     }
 
     @Override
